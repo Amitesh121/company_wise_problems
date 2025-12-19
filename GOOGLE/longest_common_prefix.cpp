@@ -23,3 +23,5 @@ public:
 
     }
 };
+
+// This sorting is a common step in algorithms designed to find the longest common prefix among strings in a list. By sorting, the strings with the greatest differences are placed at the beginning and the end of the array; the longest common prefix of all strings must be a prefix of both the first and the last string in the sorted list. 
