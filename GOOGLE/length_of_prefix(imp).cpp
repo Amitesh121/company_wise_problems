@@ -3,7 +3,7 @@
 #include <algorithm>
 
 using namespace std;
-
+//naive approach TC: O(N*M)
 class Solution {
 private:
     
@@ -36,3 +36,35 @@ public:
         return maxLen;
     }
 };
+//OPTIMISED APPROACH
+class Solution {
+public:
+    int longestCommonPrefix(vector<int>& arr1, vector<int>& arr2) {
+        unordered_set<int> prefixes;
+
+        for (int val : arr1) {
+            while (val > 0) {
+                prefixes.insert(val);
+                val /= 10;
+            }
+        }
+
+        int maxLen = 0;
+
+        for (int val : arr2) {
+            while (val > 0) {
+                if (prefixes.count(val)) {
+
+                    int currentLen = (int)log10(val) + 1;
+                    maxLen = max(maxLen, currentLen);
+
+                    break;
+                }
+                val /= 10;
+            }
+        }
+
+        return maxLen;
+    }
+};
+
